@@ -1,0 +1,1 @@
+# dep values for keycloakauth:  adminUser: < vault blabla >  adminPassword: < vault bla bla >replicaCount: 3startupProbe:  enabled: truepdb:  enabled: trueautoscaling:  enabled: truemetrics:  enabled: truepostgresql:  enabled: true  architecture: replication  service:    port: 5432
