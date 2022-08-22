@@ -4,7 +4,8 @@ metadata:
   name: config-istio
   namespace: knative-serving
 data:
-  local-gateway.knative-serving.knative-local-gateway: istio-gateway.istio-ingress.svc.cluster.local
+  knative: >
+    local-gateway.knative-serving.knative-local-gateway: "istio-gateway.istio-ingress.svc.cluster.local"
 
   
 
