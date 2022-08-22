@@ -6,8 +6,6 @@ namePrefix: istio-
 resources:
 # istio-gateway namespace
 - ./mainifests/istio-ingress-ns.yaml
-- ./mainifests/istio-system-ns.yaml
-- ./mainifests/istio-ns.yaml
       
 helmCharts:
 - name: base
