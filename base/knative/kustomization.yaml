@@ -4,12 +4,12 @@ metadata:
   name: knative
 
 namespace: knative-serving
+namePrefix: knative-
 
 resources:
-- https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-crds.yaml
 - https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-core.yaml
 - https://github.com/knative/net-istio/releases/download/knative-v1.6.0/net-istio.yaml
-- https://github.com/knative/net-istio/releases/download/knative-v1.6.0/serving-hpa.yaml
+- https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-hpa.yaml
 
 - ./manifests/istio-peerauthentication.yaml
 
