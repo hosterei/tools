@@ -1,0 +1,4 @@
+# disable istio sidecar injection for jobs
+- op: add
+  path: /metadata/annotations/sidecar.istio.io~1inject
+  value: "false"
