@@ -1,10 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+resources:
+  - "./manifests/observability-ns.yaml"
+
 helmCharts:
 - name: kube-prometheus-stack
   repo: https://prometheus-community.github.io/helm-charts
   version: "39.8.0"
   includeCRDs: true
-  releaseName: istio-base
+  releaseName: kube-prometheus-stack
   namespace: observability
