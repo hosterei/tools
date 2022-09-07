@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - "https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml"
 
-  - "./manifests/issuer-lets-encrypt-prod.yaml"
+  - "./manifests/issuer-lets-encrypt-production.yaml"
   - "./manifests/issuer-lets-encrypt-staging.yaml"
