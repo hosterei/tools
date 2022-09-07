@@ -4,7 +4,6 @@ metadata:
   name: knative
 
 namespace: knative-serving
-namePrefix: knative-
 
 resources:
 - https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-core.yaml
