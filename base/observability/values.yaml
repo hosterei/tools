@@ -4,4 +4,9 @@ grafana:
     ingressClassName: istio
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
-      
+    hosts:
+      - dashboard.hosterei.ch
+    tls:
+      - secretName: dashboard.hosterei.ch-cert
+        hosts:
+          - dashboard.hosterei.ch
