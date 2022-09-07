@@ -1,0 +1,7 @@
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: istio
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-staging
+      
