@@ -5,7 +5,7 @@ grafana:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
     hosts:
-      - dashboard.hosterei.ch
+      - dashboard.mgmt.hosterei.ch
     tls:
       - secretName: dashboard.mgmt.hosterei.ch-cert
         hosts:
