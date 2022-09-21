@@ -7,6 +7,6 @@ grafana:
     hosts:
       - dashboard.hosterei.ch
     tls:
-      - secretName: dashboard.hosterei.ch-cert
+      - secretName: dashboard.mgmt.hosterei.ch-cert
         hosts:
-          - dashboard.hosterei.ch
+          - dashboard.mgmt.hosterei.ch
