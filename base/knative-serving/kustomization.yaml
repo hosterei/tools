@@ -6,6 +6,8 @@ metadata:
 namespace: knative-serving
 
 resources:
+- ./manifests/knative-serving-ns.yaml
+
 - https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-core.yaml
 - https://github.com/knative/net-istio/releases/download/knative-v1.6.0/net-istio.yaml
 - https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-hpa.yaml

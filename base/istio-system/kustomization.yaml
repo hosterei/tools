@@ -7,6 +7,9 @@ resources:
 
 # istio-gateway namespace
 - ./mainifests/istio-ingress-ns.yaml
+
+# istio ingress class
+- ./mainifests/ingress-class.yaml
       
 helmCharts:
 - name: base
