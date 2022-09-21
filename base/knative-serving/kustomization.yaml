@@ -14,4 +14,4 @@ resources:
 - ./manifests/istio-peerauthentication.yaml
 
 patches:
-  - path: ./patches/config-istio.yaml
+  - path: ./patches/config-ingress.yaml
