@@ -34,12 +34,14 @@ patches:
           |.*-grafana"
   path: ./patches/services.yaml
 
-# fix jobs not ending because of sidecar injection
+# fix admission create jobs not ending because of sidecar injection
 - target:
     kind: Job
-  path: ./patches/jobs.yaml
+    labelSelector: "app.kubernetes.io/part-of=kube-prometheus-stack"
+  path: ./patches/jobs-disable-istio.yaml
 
-# fix failours because of to long last applied annotations
-# - target:
-#     kind: ConfigMap
-#   path: ./patches/argocd-replace.yaml
+# fix failours of  jobs with istio
+- target:
+    kind: CustomResourceDefinition
+    name: prometheuses.monitoring.coreos.com
+  path: ./patches/argocd-replace.yaml
