@@ -12,28 +12,34 @@ helmCharts:
   version: "39.8.0"
   includeCRDs: true
   valuesFile: values.yaml
-  releaseName: kube-prometheus
+  releaseName: kube-prom
   namespace: observability
 
 patches:
 - target:
     kind: ServiceMonitor
-    name: ".*-kube-prometheus-kube-state-metrics\
-          |.*-kube-prometheus-operator\
-          |.*-kube-prometheus-grafana\
-          |.*-kube-prometheus-operated-services"
+    name: ".*-kube-prom-kube-state-metrics\
+          |.*-kube-prom-operator\
+          |.*-kube-prom-grafana\
+          |.*-kube-prom-operated-services"
   path: ./patches/servicemonitors.yaml
 
 - target:
     kind: Service
     name: ".*-prometheus-node-exporter\
-          |.*-kube-prometheus-alertmanager\
-          |.*-kube-prometheus-coredns\
-          |.*-kube-prometheus-prometheus\
+          |.*-kube-prom-alertmanager\
+          |.*-kube-prom-coredns\
+          |.*-kube-prom-prometheus\
           |.*-kube-state-metrics\
           |.*-grafana"
   path: ./patches/services.yaml
 
+# fix jobs not ending because of sidecar injection
 - target:
     kind: Job
   path: ./patches/jobs.yaml
+
+# fix failours because of to long last applied annotations
+- target:
+    kind: 
+  path: ./patches/argocd-replace.yaml

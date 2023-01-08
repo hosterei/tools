@@ -1,0 +1,4 @@
+global:
+  tracer:
+    zipkin:
+      address=<jaeger-collector-address>:9411

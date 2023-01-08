@@ -1,12 +1,12 @@
 grafana:
-  ingress:
-    enabled: true
-    ingressClassName: istio
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-staging
-    hosts:
-      - dashboard.mgmt.hosterei.ch
-    tls:
-      - secretName: dashboard.mgmt.hosterei.ch-cert
-        hosts:
-          - dashboard.mgmt.hosterei.ch
+  dashboards:
+    IstioControlPlane:
+      gnetID: 7645
+    IstioServiceDashboard:
+      gnetID: 7636
+    IstioWorkloadDashboard:
+      gnetID: 7630
+    IstioMeshDashboard:
+      gnetID: 7639
+    IstioPerformanceDashboard:
+      gnetID: 11829

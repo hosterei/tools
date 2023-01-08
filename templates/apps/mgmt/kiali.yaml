@@ -1,0 +1,28 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: kiali
+  namespace: argocd
+spec:
+  destination:
+    namespace: istio-system
+    server: https://kubernetes.default.svc
+  source:
+    chart: kiali-server
+    repoURL: https://kiali.org/helm-charts
+    targetRevision: 1.50.0
+    helm:
+      values: |
+        auth:
+          strategy: "anonymous"
+        external_services:
+          prometheus:
+            # Prometheus service name is "metrics" and is in the "telemetry" namespace
+            url: "http://prom-stack-kube-prometheus-prometheus.observability:9090/"
+  project: ounu-mgmt
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

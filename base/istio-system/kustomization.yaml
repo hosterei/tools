@@ -22,10 +22,13 @@ helmCharts:
   repo: https://istio-release.storage.googleapis.com/charts
   version: "1.14.3"
   releaseName: istio-istiod
+  valuesFile: values/istiod.yaml
   namespace: istio-system
 - name: gateway
   repo: https://istio-release.storage.googleapis.com/charts
   version: "1.14.4"
   releaseName: istio-gateway
+  valuesFile: values/gateway.yaml
   namespace: istio-ingress
+
       

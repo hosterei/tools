@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: prom-stack
+  namespace: argocd
+spec:
+  destination:
+    namespace: observability
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/hosterei/knative-kustomize.git
+    path: .
+    targetRevision: main
+  project: ounu-workload
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

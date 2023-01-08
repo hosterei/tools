@@ -1,0 +1,22 @@
+tolerations:
+  - key: "server-usage"
+    operator: "Equal"
+    value: "mgmt"
+    effect: "PreferNoSchedule"
+
+cr:
+  create: true
+  namespace: istio-system
+  spec:
+    auth:
+      strategy: token
+    deployment:
+      tolerations:
+        - key: "server-usage"
+          operator: "Equal"
+          value: "mgmt"
+          effect: "PreferNoSchedule" 
+    grafana:
+      url: "http://grafana.observability"
+    prometheus:
+      url: "http://prometheus.oberservability"
