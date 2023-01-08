@@ -7,9 +7,6 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
 
 topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: topology.kubernetes.io/zone
-        whenUnsatisfiable: ScheduleAnyway
-        matchLabelKeys:
-          - app
-          - pod-template-hash
+  - maxSkew: 1
+    topologyKey: topology.kubernetes.io/zone
+    whenUnsatisfiable: ScheduleAnyway
