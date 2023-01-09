@@ -18,5 +18,3 @@ helmCharts:
   namespace: cert-manager
   valuesInline:
     groupName: acme.hosterei.ch
-
-  helm repo add cert-manager-webhook-hetzner 
