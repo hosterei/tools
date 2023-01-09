@@ -4,13 +4,11 @@ kind: Kustomization
 namespace: kube-system
 
 helmCharts:
-- name: kubed
-  repo: https://charts.appscode.com/stable/
-  version: "0.13.2"
+- name: reflector
+  repo: https://emberstack.github.io/helm-charts
+  version: "6.1.47"
   includeCRDs: true
-  releaseName: kubed
+  releaseName: reflector
   namespace: kube-system
-  valuesInline:
-    enableAnalytics: false
 
       
