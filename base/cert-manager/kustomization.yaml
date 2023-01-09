@@ -2,7 +2,21 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - "https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml"
+  - https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
 
-  - "./manifests/issuer-lets-encrypt-production.yaml"
-  - "./manifests/issuer-lets-encrypt-staging.yaml"
+  - ./manifests/hetzner-dns-secret.yaml
+
+  - ./manifests/issuer-letsencrypt-production.yaml
+  - ./manifests/issuer-letsencrypt-staging.yaml
+
+helmCharts:
+- name: cert-manager-webhook-hetzner
+  repo: https://vadimkim.github.io/cert-manager-webhook-hetzner
+  version: "0.12.0"
+  includeCRDs: true
+  releaseName: cert-manager-webhook-hetzner
+  namespace: cert-manager
+  valuesInline:
+    groupName: acme.hosterei.ch
+
+  helm repo add cert-manager-webhook-hetzner 
