@@ -4,10 +4,10 @@ kind: Kustomization
 resources:
   - "https://github.com/hosterei/tools.git/base/istio-system/"
 
-# helmCharts:
-#   - name: kiali-operator
-#     repo: https://kiali.org/helm-charts
-#     version: "1.55"
-#     releaseName: kiali-operator
-#     valuesFile: values/kiali.yaml
-#     namespace: istio-system
+helmCharts:
+  - name: kiali-operator
+    repo: https://kiali.org/helm-charts
+    version: "1.55"
+    releaseName: kiali-operator
+    valuesFile: values/kiali.yaml
+    namespace: istio-system
