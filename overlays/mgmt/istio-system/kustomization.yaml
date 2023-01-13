@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 bases:
-  - "../../../base/istio-system"
+  - "git@github.com/hosterei/tools.git/base/istio-system/"
 
 helmCharts:
   - name: kiali-operator
