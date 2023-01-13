@@ -59,6 +59,6 @@ spec:
   http:
   - route:
     - destination:
-        host: argocd-server.argocd.svc.cluster.local
+        host: kiali.istio-system.svc.cluster.local:2001
         port:
           number: 80
