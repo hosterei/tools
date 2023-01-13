@@ -1,0 +1,64 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kiali.mgmt.hosterei.ch
+spec:
+  secretName: kiali.mgmt.hosterei.ch-tls
+  commonName: kiali.mgmt.hosterei.ch
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+    group: cert-manager.io
+  dnsNames:
+  - kiali.mgmt.hosterei.ch
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "istio-ingress"  
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "istio-ingress"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: kiali-gateway
+spec:
+  selector:
+    istio: gateway
+  servers:
+    - hosts:
+        - kiali.mgmt.hosterei.ch
+      port:
+        name: https
+        number: 443
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: kiali.mgmt.hosterei.ch-tls
+    - hosts:
+        - kiali.mgmt.hosterei.ch
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+      tls:
+        httpsRedirect: true
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: kiali-virtual-service
+  namespace: argocd
+spec:
+  hosts:
+  - kiali.mgmt.hosterei.ch
+  gateways:
+  - argocd-gateway
+  http:
+  - route:
+    - destination:
+        host: argocd-server.argocd.svc.cluster.local
+        port:
+          number: 80

@@ -4,6 +4,8 @@ kind: Kustomization
 resources:
   - "https://github.com/hosterei/tools.git/base/istio-system/"
 
+  - "mainifests/ingress.yaml"
+
 helmCharts:
   - name: kiali-operator
     repo: https://kiali.org/helm-charts
