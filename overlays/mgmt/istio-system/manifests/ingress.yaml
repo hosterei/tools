@@ -55,7 +55,7 @@ spec:
   hosts:
   - kiali.mgmt.hosterei.ch
   gateways:
-  - argocd-gateway
+  - kiali-gateway
   http:
   - route:
     - destination:
