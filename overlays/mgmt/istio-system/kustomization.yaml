@@ -8,6 +8,7 @@ helmCharts:
   - name: kiali-operator
     repo: https://kiali.org/helm-charts
     version: "1.55"
+    includeCRDs: true
     releaseName: kiali-operator
     valuesFile: values/kiali.yaml
     namespace: istio-system
