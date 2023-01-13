@@ -59,6 +59,6 @@ spec:
   http:
   - route:
     - destination:
-        host: kiali.istio-system.svc.cluster.local:2001
+        host: kiali.istio-system.svc.cluster.local
         port:
-          number: 80
+          number: 2001
