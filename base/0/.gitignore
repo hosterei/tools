@@ -1,0 +1,2 @@
+# ignore pulled helm charts
+*charts/

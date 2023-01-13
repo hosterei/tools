@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - "mainifests/reflector-ns.yaml"
+
+helmCharts:
+- name: reflector
+  repo: https://emberstack.github.io/helm-charts
+  version: "6.1.47"
+  includeCRDs: true
+  releaseName: reflector
+  namespace: reflector
+
+      

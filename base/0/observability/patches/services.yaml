@@ -1,0 +1,6 @@
+# Add appProtocol=http to Service.spec.ports[0] port of the known services
+# to fix Istio protocol selection:
+# https://istio.io/latest/docs/ops/configuration/traffic-management/protocol-selection
+- op: add
+  path: /spec/ports/0/appProtocol
+  value: http

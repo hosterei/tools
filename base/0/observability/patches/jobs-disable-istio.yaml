@@ -1,0 +1,10 @@
+# disable istio sidecar injection for admission create jobs
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kube-prometheus-stack-admission-create
+spec:
+  template:
+    metadata: 
+      labels:
+        sidecar.istio.io/inject: "false"
