@@ -11,14 +11,17 @@ resources:
 - https://github.com/knative/net-istio/releases/download/knative-v1.6.0/net-istio.yaml
 - https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-hpa.yaml
 
+- https://github.com/knative/net-certmanager/releases/download/knative-v1.8.1/release.yaml
+
 - ./manifests/istio-peerauthentication.yaml
 
 patches:
   - path: ./patches/config-ingress.yaml
   - path: ./patches/config-domain.yaml
+  - path: ./patches/config-certmanager.yaml
+  - path: ./patches/config-network.yaml
   
   - path: ./patches/istio-gateway.yaml
     target:
       kind: Gateway
       group: networking.istio.io
-      name: knative-*
