@@ -16,3 +16,9 @@ resources:
 patches:
   - path: ./patches/config-ingress.yaml
   - path: ./patches/config-domain.yaml
+  
+  - path: ./patches/istio-gateway.yaml
+    target:
+      kind: Gateway
+      group: networking.istio.io
+      name: knative-*
