@@ -1,0 +1,63 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana.mgmt.hosterei.ch
+spec:
+  secretName: grafana.mgmt.hosterei.ch-tls
+  commonName: grafana.mgmt.hosterei.ch
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+    group: cert-manager.io
+  dnsNames:
+  - grafana.mgmt.hosterei.ch
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "istio-ingress"  
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "istio-ingress"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: grafana-gateway
+spec:
+  selector:
+    istio: gateway
+  servers:
+    - hosts:
+        - grafana.mgmt.hosterei.ch
+      port:
+        name: https
+        number: 443
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: grafana.mgmt.hosterei.ch-tls
+    - hosts:
+        - grafana.mgmt.hosterei.ch
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+      tls:
+        httpsRedirect: true
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: grafana-virtual-service
+spec:
+  hosts:
+  - grafana.mgmt.hosterei.ch
+  gateways:
+  - grafana-gateway
+  http:
+  - route:
+    - destination:
+        host: grafana.observability.svc.cluster.local
+        port:
+          number: 80

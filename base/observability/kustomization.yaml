@@ -5,6 +5,7 @@ resources:
   - "./manifests/observability-ns.yaml"
 
   - ./manifests/networking.yaml
+  - ./manifests/ingress.yaml
 
 helmCharts:
 - name: kube-prometheus-stack
