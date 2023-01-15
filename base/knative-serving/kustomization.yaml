@@ -15,3 +15,4 @@ resources:
 
 patches:
   - path: ./patches/config-ingress.yaml
+  - path: ./patches/config-domain.yaml
