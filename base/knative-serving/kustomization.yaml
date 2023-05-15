@@ -7,11 +7,11 @@ namespace: knative-serving
 
 resources:
 
-- https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-core.yaml
-- https://github.com/knative/net-istio/releases/download/knative-v1.6.0/net-istio.yaml
-- https://github.com/knative/serving/releases/download/knative-v1.6.0/serving-hpa.yaml
+- https://github.com/knative/serving/releases/download/knative-v1.8.3/serving-core.yaml
+- https://github.com/knative/net-istio/releases/download/knative-v1.8.3/net-istio.yaml
+- https://github.com/knative/serving/releases/download/knative-v1.8.3/serving-hpa.yaml
 
-- https://github.com/knative/net-certmanager/releases/download/knative-v1.8.1/release.yaml
+- https://github.com/knative/net-certmanager/releases/download/knative-v1.8.3/release.yaml
 
 - ./manifests/istio-peerauthentication.yaml
 

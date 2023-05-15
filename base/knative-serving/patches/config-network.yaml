@@ -6,6 +6,3 @@ metadata:
 data:
   auto-tls: Enabled
   http-protocol: Redirected
-
-  namespace-wildcard-cert-selector: >-
-    {"matchExpressions": [{"key":"networking.knative.dev/enableWildcardCert","operator": "In", "values":["true"]}]}
