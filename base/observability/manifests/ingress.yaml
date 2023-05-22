@@ -58,6 +58,6 @@ spec:
   http:
   - route:
     - destination:
-        host: grafana.observability.svc.cluster.local
+        host: kube-prom-grafana.observability.svc.cluster.local
         port:
           number: 80
