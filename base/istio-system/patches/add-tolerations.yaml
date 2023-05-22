@@ -1,0 +1,7 @@
+- op: add
+  path: /spec/template/spec/tolerations
+  value:
+  - key: "server-usage"
+    operator: "Equal"
+    value: "mgmt"
+    effect: "PreferNoSchedule" 

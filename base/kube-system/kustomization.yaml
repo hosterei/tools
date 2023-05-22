@@ -11,4 +11,9 @@ helmCharts:
   releaseName: reflector
   namespace: reflector
 
-      
+patches:
+  # Add tolerations to Deployment resources
+  - path: patches/add-tolerations.yaml
+    target:
+      name: .*
+      kind: Deployment

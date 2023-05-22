@@ -17,3 +17,22 @@ helmCharts:
   namespace: cert-manager
   valuesInline:
     groupName: acme.hosterei.ch
+
+patches:
+  # Add tolerations to Deployment resources
+  - path: patches/add-tolerations.yaml
+    target:
+      name: .*
+      kind: Deployment
+
+  # Add tolerations to DaemonSet resources
+  - path: patches/add-tolerations.yaml
+    target:
+      name: .*
+      kind: DaemonSet
+
+  # Add tolerations to StatefulSet resources
+  - path: patches/add-tolerations.yaml
+    target:
+      name: .*
+      kind: StatefulSet
