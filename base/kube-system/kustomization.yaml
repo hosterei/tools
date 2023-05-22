@@ -6,7 +6,7 @@ namespace: kube-system
 helmCharts:
 - name: reflector
   repo: https://emberstack.github.io/helm-charts
-  version: "7.0.151"
+  version: "7.0.173"
   includeCRDs: true
   releaseName: reflector
   namespace: reflector
