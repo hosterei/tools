@@ -10,7 +10,10 @@ resources:
 
 # istio ingress class
 - ./mainifests/ingress-class.yaml
-      
+
+# kuberntes gateway resources
+- https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
+
 helmCharts:
 - name: base
   repo: https://istio-release.storage.googleapis.com/charts
@@ -23,6 +26,17 @@ helmCharts:
   version: "1.16.1"
   releaseName: istio-istiod
   valuesFile: values/istiod.yaml
+  namespace: istio-system
+- name: cni
+  repo: https://istio-release.storage.googleapis.com/charts
+  version: "1.16.1"
+  releaseName: istio-cni
+  valuesFile: values/cni.yaml
+  namespace: istio-system
+- name: ztunnel
+  repo: https://istio-release.storage.googleapis.com/charts
+  version: "1.16.1"
+  releaseName: istio-ztunnel
   namespace: istio-system
 - name: gateway
   repo: https://istio-release.storage.googleapis.com/charts
