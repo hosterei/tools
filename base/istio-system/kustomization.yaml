@@ -37,6 +37,7 @@ helmCharts:
   repo: https://istio-release.storage.googleapis.com/charts
   version: "1.23.2"
   releaseName: istio-ztunnel
+  valuesFile: values/ztunnel.yaml
   namespace: istio-system
 - name: gateway
   repo: https://istio-release.storage.googleapis.com/charts
