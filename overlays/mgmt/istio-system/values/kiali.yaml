@@ -20,6 +20,9 @@ cr:
       istio:
         ingress_gateway_namespace: istio-ingress
       grafana:
+        url: "https://grafana.mgmt.hosterei.ch"
         in_cluster_url: "http://kube-prom-grafana.observability"
       prometheus:
         url: "http://kube-prom-kube-prometheus-prometheus.observability:9090"
+    server:
+      web_fqdn: "kiali.mgmt.hosterei.ch"
