@@ -19,9 +19,20 @@ cr:
     external_services:
       istio:
         ingress_gateway_namespace: istio-ingress
+        component_status:
+          enabled: true
+          components:
+              - app_label: istiod
+                is_core: true
+              - app_label: istio=ingressgateway
+                is_core: true
+                namespace: istio-ingress
       grafana:
         url: "https://grafana.mgmt.hosterei.ch"
         in_cluster_url: "http://kube-prom-grafana.observability"
+        auth:
+          username: "admin"
+          password: "<path:/hosterei/tools/grafana#adminPassword"
       prometheus:
         url: "http://kube-prom-kube-prometheus-prometheus.observability:9090"
     server:

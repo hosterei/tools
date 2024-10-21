@@ -3,3 +3,4 @@ TODO:
 - kube-prom-stack is not scraping metrics from kube-state-metrics
 - prometheus is not scraping istio metrics
 - kiali is not regonizing istio-ingressgateway
+- loadbalancer of ingressgateway is in wrong zone
