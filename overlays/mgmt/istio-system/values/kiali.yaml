@@ -32,7 +32,7 @@ cr:
         in_cluster_url: "http://kube-prom-grafana.observability"
         auth:
           username: "admin"
-          password: "<path:/hosterei/tools/grafana#adminPassword"
+          password: "<path:/hosterei/tools/grafana#adminPassword>"
       prometheus:
         url: "http://kube-prom-kube-prometheus-prometheus.observability:9090"
     server:

@@ -14,6 +14,9 @@ resources:
 # kuberntes gateway resources
 - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
 
+# service monitor etc.
+- https://raw.githubusercontent.com/istio/istio/refs/heads/master/samples/addons/extras/prometheus-operator.yaml
+
 helmCharts:
 - name: base
   repo: https://istio-release.storage.googleapis.com/charts
