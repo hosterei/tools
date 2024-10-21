@@ -6,6 +6,9 @@ resources:
 
   - ./manifests/networking.yaml
   - ./manifests/ingress.yaml
+    
+    # awsome k8s dashboards
+  - https://github.com/dotdc/grafana-dashboards-kubernetes
 
 helmCharts:
 - name: kube-prometheus-stack
@@ -30,5 +33,5 @@ patches:
 # argocd serverside apply
 - target:
     kind: CustomResourceDefinition
-    name: prometheuses.monitoring.coreos.com
+    name: ".*.monitoring.coreos.com"
   path: ./patches/argocd-serverside-apply.yaml

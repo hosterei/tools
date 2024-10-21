@@ -1,4 +1,7 @@
 grafana:
+  defaultDashboardsEnabled: false
+  adminPassword: "<path:/hosterei/tools/grafana#adminPassword"
+
   sidecar:
     dashboards:
       enabled: true
