@@ -10,3 +10,8 @@
     certFile: /etc/istio-certs/cert-chain.pem
     keyFile: /etc/istio-certs/key.pem
     insecureSkipVerify: true
+
+# replace selectors
+- op: replace
+  path: /spec/selector/matchLabels/app.kubernetes.io~1instance
+  value: observability

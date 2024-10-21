@@ -19,20 +19,12 @@ helmCharts:
 patches:
 - target:
     kind: ServiceMonitor
-    name: ".*-kube-prom-kube-state-metrics\
-          |.*-kube-prom-operator\
-          |.*-kube-prom-grafana\
-          |.*-kube-prom-operated-services"
+    name: "kube-prom.*"
   path: ./patches/servicemonitors.yaml
 
 - target:
     kind: Service
-    name: ".*-prometheus-node-exporter\
-          |.*-kube-prom-alertmanager\
-          |.*-kube-prom-coredns\
-          |.*-kube-prom-prometheus\
-          |.*-kube-state-metrics\
-          |.*-grafana"
+    name: "kube-prom.*"
   path: ./patches/services.yaml
 
 # argocd serverside apply
